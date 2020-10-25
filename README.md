@@ -110,7 +110,7 @@ public void drawWord(boolean correct){
             }
 ```
 * Problem:
-  - Too long if else statement hars to read and understand.
+  - Too long if else statement hard to read and understand.
 * Refactor
   - Extract part of that code to one method.
   ```java
@@ -159,5 +159,53 @@ public void drawWord(boolean correct){
         }
     }
   ```
-  
- 
+  Benefit: make code more readable and easier to detect bug in algorithm.
+ In the `src/application/windows/PlayGame.java`
+
+https://github.com/Ing140943/TypingGame/blob/master/src/application/windows/PlayGame.java
+
+consider this code: 
+```java
+public void showDialog(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        if (countWords < 100){
+            alert.setTitle("Game Over");
+            alert.setHeaderText("You loose because your helth is Over! \n You have to practice more!");
+
+        }
+        else{
+            alert.setTitle("Congratulations!!");
+            alert.setHeaderText("You won this game!!!");
+
+        }
+        clock.stopTime();
+        alert.showAndWait();
+    }
+```
+
+* Problems:
+ - alert cariable should declare in constructor because another methods should able to call it too.(Pull up Field)
+ - has duplicate code to call when call setTitle and setHeaderText
+ * Refactor:
+ - move alert variable to constructor
+ - make method setTitleAndHeader
+ ```java
+     public void showDialog(){
+        String setTitle;
+        String setHeaderText;
+        if (countWords < 100){
+            setTitleAndHeader("Game Over", "You loose because your helth is Over! \n You have to practice more!");
+        }
+        else{
+            setTitleAndHeader("Congratulations!!", "You won this game!!!");
+        }
+        clock.stopTime();
+        alert.showAndWait();
+    }
+
+    public void setTitleAndHeader(String setTitle, String setHeaderText) {
+        alert.setTitle(setTitle);
+        alert.setHeaderText(setHeaderText);
+    }
+ ```
+ Benefit: clean code and more easy to read.
