@@ -184,11 +184,11 @@ public void showDialog(){
 ```
 
 * Problems:
- - alert cariable should declare in constructor because another methods should able to call it too.(Pull up Field)
- - has duplicate code to call when call setTitle and setHeaderText
+  - alert cariable should declare in constructor because another methods should able to call it too.(Pull up Field)
+  - has duplicate code to call when call setTitle and setHeaderText
  * Refactor:
- - move alert variable to constructor
- - make method setTitleAndHeader
+  - move alert variable to constructor
+  - make method setTitleAndHeader
  ```java
      public void showDialog(){
         String setTitle;
