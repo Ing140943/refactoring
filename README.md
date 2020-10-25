@@ -34,7 +34,7 @@ public void drawWord(boolean correct){
     }
 ```
 * Problem:
-  - We can grouped the code together to one method.
+  - We can grouped the code together to one method because drawWord and the constructor have same duplicate code.
 * Refactor
   - Move this code to a separate new method and replace the old code with a call to the method.
   
@@ -67,7 +67,10 @@ public void drawWord(boolean correct){
                 //unrelated code}
   ```
   
-  Benefit: The code is more readable and less duplication code.
+ * Benefits: 
+      - The code is more readabl
+      - less duplication code.
+      - Easier to maintanance the code.
   
 In the `src/application/windows/PlayGame.java`
 
@@ -159,7 +162,9 @@ public void drawWord(boolean correct){
         }
     }
   ```
-  Benefit: make code more readable and easier to detect bug in algorithm.
+ * Benefits:
+    - Making code more readable
+    - Easier to detect bug in algorithm
  In the `src/application/windows/PlayGame.java`
 
 https://github.com/Ing140943/TypingGame/blob/master/src/application/windows/PlayGame.java
@@ -184,11 +189,11 @@ public void showDialog(){
 ```
 
 * Problems:
-  - alert cariable should declare in constructor because another methods should able to call it too.(Pull up Field)
+  - alert variable should declare in constructor because another methods should able to call it too.(Pull up Field)
   - has duplicate code to call when call setTitle and setHeaderText
  * Refactor:
-  - move alert variable to constructor
-  - make method setTitleAndHeader
+   - move alert variable to constructor
+   - make method setTitleAndHeader
  ```java
      public void showDialog(){
         String setTitle;
@@ -208,4 +213,8 @@ public void showDialog(){
         alert.setHeaderText(setHeaderText);
     }
  ```
- Benefit: clean code and more easy to read.
+ * Benefits:
+      - Code get more clean
+      - Code is more readable
+      - Eliminates duplication of variable alert
+
