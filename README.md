@@ -165,11 +165,13 @@ public void drawWord(boolean correct){
  * Benefits:
     - Making code more readable
     - Easier to detect bug in algorithm
+    
  In the `src/application/windows/PlayGame.java`
 
 https://github.com/Ing140943/TypingGame/blob/master/src/application/windows/PlayGame.java
 
 consider this code: 
+### showDialog method
 ```java
 public void showDialog(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
